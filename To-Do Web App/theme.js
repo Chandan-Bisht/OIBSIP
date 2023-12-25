@@ -34,6 +34,7 @@ function toggleTheme() {
 
 function applyTheme(selectedTheme) {
   if (selectedTheme === "dark") {
+    theme.classList.add("active");
     theme.innerHTML = `<i class="bx bxs-moon bx-sm"></i>`;
     document.body.style.backgroundColor = "#2b313c";
     document.body.style.color = "#a7adbb";
