@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>To-do List</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+       <header class="theme-switcher">
+        <button class="mode">
+            <i class="bx bxs-sun bx-sm"></i>
+        </button>
+       </header>
+       <main>
+        <section class="container">
+            <header>
+                <h1>Todo List</h1>
+                <p class="alert-message hide">Todo updated successfully</p>
+                <form>
+                    <input type="text" class="task-input" placeholder="Add a todo ..." />
+                    <input type="date" class="schedule-date" />
+                    <button class="add-task">
+                        <i class="bx bx-plus bx-sm"></i>
+                    </button>
+                </form>
+            </header>
+            <div class="todos-filter">
+                <div class="dropdown">
+                    <button class="filter-btn">Filter</button>
+                    <ul tabindex="0" class="dropdown-content">
+                        <li onclick="filterTodos('all')">
+                            <a class="dropdown-item">All</a>
+                        </li>
+                        <li onclick="filterTodos('pending')">
+                            <a class="dropdown-item">Pending</a>
+                        </li>
+                        <li onclick="filterTodos('completed')">
+                            <a class="dropdown-item">Completed</a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="delete-all-btn">Delete All</button>
+            </div>
+            <table class="table">
+                <thead class="todos-list-header">
+                    <tr>
+                        <th>Task</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="todos-list-body">
+                </tbody>
+            </table>
+        </section>
+       </main>
+       <footer>Made with &#10084;&#65039; | Designed by <strong>Chandan Bisht</strong></footer>
+        <script src="index.js"></script>
+        <script src="theme.js"></script>
+    </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #todo-container {
+      max-width: 400px;
+      margin: 50px auto;
+    }
+
+    #todo-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .task {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
+
+    .task button {
+      cursor: pointer;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<div id="todo-container">
+  <h1>Todo App</h1>
+  <input type="text" id="task-input" placeholder="Add a new task">
+  <button onclick="addTask()">Add Task</button>
+
+  <ul id="todo-list"></ul>
+</div>
+
+<script>
+  // Function to retrieve tasks from local storage
+  function getTasks() {
+    return JSON.parse(localStorage.getItem('tasks')) || [];
+  }
+
+  // Function to save tasks to local storage
+  function saveTasks(tasks) {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
+  // Function to render tasks
+  function renderTasks() {
+    const todoList = document.getElementById('todo-list');
+    todoList.innerHTML = '';
+
+    const tasks = getTasks();
+
+    tasks.forEach((task, index) => {
+      const taskElement = document.createElement('li');
+      taskElement.className = `task ${task.completed ? 'completed' : ''}`;
+      taskElement.innerHTML = `
+        <span>${task.text}</span>
+        <button onclick="toggleComplete(${index})">Complete</button>
+        <button onclick="deleteTask(${index})">Delete</button>
+      `;
+      todoList.appendChild(taskElement);
+    });
+  }
+
+  // Function to add a new task
+  function addTask() {
+    const taskInput = document.getElementById('task-input');
+    const text = taskInput.value.trim();
+
+    if (text === '') {
+      alert('Please enter a task.');
+      return;
+    }
+
+    const tasks = getTasks();
+    tasks.push({ text, completed: false });
+    saveTasks(tasks);
+    renderTasks();
+
+    // Clear input field
+    taskInput.value = '';
+  }
+
+  // Function to toggle task completion
+  function toggleComplete(index) {
+    const tasks = getTasks();
+    tasks[index].completed = !tasks[index].completed;
+    saveTasks(tasks);
+    renderTasks();
+  }
+
+  // Function to delete a task
+  function deleteTask(index) {
+    const tasks = getTasks();
+    tasks.splice(index, 1);
+    saveTasks(tasks);
+    renderTasks();
+  }
+
+  // Initial rendering
+  renderTasks();
+</script>
+
+</body>
+</html> -->
