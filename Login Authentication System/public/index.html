@@ -12,13 +12,13 @@
     <section class="container">
       <h1>Login Account</h1>
       <p>Please enter your Email and Password</p>
-      <form action="/login">
+      <form id="loginForm">
         <label for="email">Email address</label>
         <input
           type="email"
           name="email"
           id="email"
-          placeholder="joe@gmail.com"
+          placeholder="Type your email address"
           autocomplete="off"
           autofocus
           required
@@ -28,14 +28,13 @@
           type="password"
           name="password"
           id="password"
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-          title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+          placeholder="Type your password"
           required
         />
         <i class="fa-regular fa-eye icon" onClick="show()"></i>
-        <p class="error"></p>
+        <p id="loginError" class="error"></p>
         <button type="submit">Login</button>
-        <p>Don't have an account? <a href="/signup">Create Account</a></p>
+        <p>Don't have an account? <a href="/register">Create Account</a></p>
       </form>
     </section>
     <script src="index.js"></script>
